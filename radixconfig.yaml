@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: webwiz-config-radix
+  name: webviz-config-radix
 spec:
   environments:
     - name: dev
@@ -48,10 +48,10 @@ spec:
         - name: http
           port: 5000
       publicPort: http
-      secrets:
-        - AZURE_STORAGE_CONNECTION_STRING
-        - AZURE_STORAGE_CONTAINER_NAME
-        - AZURE_STORAGE_CONTAINER_PATH
+      #secrets:
+      #  - AZURE_STORAGE_CONNECTION_STRING
+      #  - AZURE_STORAGE_CONTAINER_NAME
+      #  - AZURE_STORAGE_CONTAINER_PATH
       environmentConfig:
         - environment: dev
           resources:
