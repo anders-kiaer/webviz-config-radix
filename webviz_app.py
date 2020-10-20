@@ -73,35 +73,9 @@ else:
     page_content = {}
     
     page_content["front-page"] = [
-       webviz_config.plugins.BannerImage(**{'image': PosixPath('/home/anders/git/webviz-config/examples/example_banner.png'), 'title': 'My banner image'}).plugin_layout(contact_person=None),
        dcc.Markdown(r"""Webviz created from configuration file."""),
-       dcc.Markdown(r"""Some other text, potentially with strange letters like Åre, Smørbukk Sør.""")
        ]
-    
-    page_content["markdown-example"] = [
-       webviz_config.plugins.Markdown(**{'markdown_file': PosixPath('/home/anders/git/webviz-config/examples/example-markdown.md')}).plugin_layout(contact_person=None)
-       ]
-    
-    page_content["table-example"] = [
-       webviz_config.plugins.DataTable(**{'csv_file': PosixPath('/home/anders/git/webviz-config/examples/example_data.csv')}).plugin_layout(contact_person=None)
-       ]
-    
-    page_content["pdf-example"] = [
-       webviz_config.plugins.EmbedPdf(**{'pdf_file': PosixPath('/home/anders/git/webviz-config/examples/example.pdf')}).plugin_layout(contact_person=None)
-       ]
-    
-    page_content["syntax-highlighting-example"] = [
-       webviz_config.plugins.SyntaxHighlighter(**{'filename': PosixPath('/home/anders/git/webviz-config/examples/basic_example.yaml')}).plugin_layout(contact_person=None)
-       ]
-    
-    page_content["plot-a-table"] = [
-       webviz_config.plugins.TablePlotter(app=app, **{'csv_file': PosixPath('/home/anders/git/webviz-config/examples/example_data.csv'), 'filter_cols': ['Well', 'Segment', 'Average permeability (D)'], 'plot_options': {'type': 'bar', 'facet_col': 'Well', 'color': 'Segment', 'barmode': 'group'}, 'filter_defaults': {'Well': ['A-1H', 'A-2H', 'C-1H']}, 'column_color_discrete_maps': {'Segment': {'A': '#ff0000', 'B': 'rgb(0,255,0)', 'C': 'blue'}}}).plugin_layout(contact_person={'name': 'Ola Nordmann', 'phone': '+47 12345678', 'email': 'some@email.com'})
-       ]
-    
-    page_content["plot-a-table-locked"] = [
-       webviz_config.plugins.TablePlotter(app=app, **{'csv_file': PosixPath('/home/anders/git/webviz-config/examples/example_data.csv'), 'lock': True, 'plot_options': {'x': 'Well', 'y': 'Initial reservoir pressure (bar)', 'size': 'Average permeability (D)', 'facet_col': 'Segment'}}).plugin_layout(contact_person={'name': 'Kari Nordmann', 'phone': 12345678, 'email': 'someother@email.com'})
-       ]
-    
+
     app.layout = html.Div(
         className="layoutWrapper", 
         children=[html.Div(
@@ -115,54 +89,7 @@ else:
                     id="logo",
                     className="styledLogo",
                     href="/",),
-                dcc.Link("Markdown example",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="markdown-example",
-                    href="/markdown-example",),
-                dcc.Link("Table example",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="table-example",
-                    href="/table-example",),
-                dcc.Link("PDF example",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="pdf-example",
-                    href="/pdf-example",),
-                dcc.Link("Syntax highlighting example",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="syntax-highlighting-example",
-                    href="/syntax-highlighting-example",),
-                dcc.Link("Plot a table",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="plot-a-table",
-                    href="/plot-a-table",),
-                dcc.Link("Plot a table (locked)",
-                    # We will create a webviz-core-components
-                    # component instead of styling dcc.Link's,
-                    # then we can more easily change className to
-                    # selectedButton for current page.
-                    className="styledButton",
-                    id="plot-a-table-locked",
-                    href="/plot-a-table-locked",)
+
             ])]),
         html.Div(className="pageContent", id="page-content")])
 
