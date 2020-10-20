@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: webwiz-config-on-radix
+  name: webwiz-config-radix
 spec:
   environments:
     - name: dev
@@ -21,8 +21,8 @@ spec:
       environmentConfig:
         - environment: dev
           variables:
-            OAUTH2_PROXY_SCOPE: openid offline_access profile 23b07c34-ab93-4acf-968f-ba710a23f0b5/user_impersonation email
-            OAUTH2_PROXY_CLIENT_ID: 23b07c34-ab93-4acf-968f-ba710a23f0b5
+            OAUTH2_PROXY_SCOPE: openid offline_access profile 637b28d7-8470-4413-a8b2-5e9dd48fe53a/user_impersonation email
+            OAUTH2_PROXY_CLIENT_ID: 637b28d7-8470-4413-a8b2-5e9dd48fe53a
             OAUTH2_PROXY_COOKIE_REFRESH: "60m" # How often should the token be refreshed. Default for azure ad is currently 60m
             OAUTH2_PROXY_EMAIL_DOMAINS: "*" # Any email address registered in AD should be accepted
             OAUTH2_PROXY_HTTP_ADDRESS: "http://:8000" # The port oauth2_proxy listens on
