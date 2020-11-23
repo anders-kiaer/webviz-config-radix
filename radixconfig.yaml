@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: webviz-config-on-radix
+  name: webviz-rx-cli-test
 spec:
   environments:
     - name: dev
